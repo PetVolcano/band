@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Music</title>
+<link href="home2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="music-section">
+        <div class="bg-container">
+            <p class="songselect" id="select">SELECT A SONG</p>
+            <div class="controls-container">
+                <button class="jukebox" id="prevBtn">Prev</button>
+                <p> - </p>
+                <button class="jukebox" id="nextBtn">Next</button>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <a href="https://distrokid.com/hyperfollow/petvolcano/break-free" aria-label="Listen to the song 'Break Free'" target="_blank">
+                        <img src="juke5.png" alt="break" id="lastclone" />
+                    </a>
+                    <a href="https://distrokid.com/hyperfollow/petvolcano/the-zombie-twist" aria-label="Listen to the song 'The Zombie Twist'" target="_blank">
+                        <img src="juke1.png" alt="zombie" id="zombie" />
+                    </a>
+                    <a href="https://distrokid.com/hyperfollow/petvolcano/je-te-veux" aria-label="Listen to the song 'Je Te Veux'" target="_blank">
+                        <img src="juke2.png" alt="veux" id="veux" />
+                    </a>
+                    <a href="https://distrokid.com/hyperfollow/petvolcano/on-a-sunny-day" aria-label="Listen to the song 'On a Sunny Day'" target="_blank">
+                        <img src="juke3.png" alt="sunny" id="sunny" />
+                    </a>
+                    <a href="https://distrokid.com/hyperfollow/petvolcano/beat-still" aria-label="Listen to the song 'Beat Still'" target="_blank">
+                        <img src="juke4.png" alt="beat" id="beat" />
+                    </a>
+                    <a href="https://distrokid.com/hyperfollow/petvolcano/break-free" aria-label="Listen to the song 'Break Free'" target="_blank">
+                        <img src="juke5.png" alt="break" id="firstclone" />
+                    </a>
+                </div>
+            </div>
+        </div>            
+    </div>
+	<div class="dates-section" id="dates">
+<p class="mid-text">more songs coming someday..</p>
+		<p class="mid-text">sign up for news.</p>
+	<p></p>
+		<p></p></div>
+
+    <script>
+       window.addEventListener('load', () => {
+    const carouselSlide = document.querySelector('.carousel-slide');
+    const carouselImages = document.querySelectorAll('.carousel-slide img');
+
+    const prevBtn = document.querySelector('#prevBtn');
+    const nextBtn = document.querySelector('#nextBtn');
+
+    if (carouselSlide && carouselImages.length > 0 && prevBtn && nextBtn) {
+        let counter = 1;
+        const size = carouselImages[0].clientWidth;
+
+        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+        nextBtn.addEventListener('click', () => {
+            carouselSlide.style.transition = "transform 0.4s ease-in-out";
+            counter++;
+            if (counter >= carouselImages.length - 1) counter = 0;
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        });
+
+        prevBtn.addEventListener('click', () => {
+            carouselSlide.style.transition = "transform 0.4s ease-in-out";
+            counter--;
+            if (counter < 0) counter = carouselImages.length - 2;
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        });
+    } else {
+        console.error('Carousel elements not found in DOM.');
+    }
+
+    document.getElementById('load-dates').addEventListener('click', function (e) {
+        e.preventDefault();
+        loadContent('dates.html', 'dynamic-content');
+    });
+});
+
+    </script>
+	</body>
+</html>

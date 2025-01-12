@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pet Volcano Home</title>
+    <link href="home2.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="parallax-container">
+    <div class="parallax-layer bg-layer">
+        <img src="sky.jpg" alt="bg" id="bg-image" class="parallax-image" />
+    </div>
+    <div class="parallax-layer layer4">
+        <img src="Erupting-Volcano-smoke.gif" alt="layer4" id="layer4" class="parallax-image" />
+    </div>
+    <div class="parallax-layer layer3">
+        <img src="image3.gif" alt="layer3" id="layer3" class="parallax-image" />
+    </div>
+    <div class="parallax-layer layer1">
+        <img src="image1.png" alt="layer1" id="layer1" class="parallax-image" />
+    </div>
+    <div class="parallax-layer layer2">
+        <img src="image2.png" alt="layer2" id="layer2" class="parallax-image" />
+    </div>
+    <div class="content-layer lightit">
+       <p id="home" class="button">
+          <button id="scroll-to-hiding">Light it on Fire!</button>
+       </p>
+    </div>	
+	<div class="zombie-layer">
+		<h1 id="zombride">See Hear</h1>
+	<div class="layer5">
+		<a href="https://youtu.be/hZnOpW56WYg?si=ySg_3-Nfzi-uAmOb" aria-label="watch the video for the zombie twist on youtube" target="_blank">
+           <img src="zombie.jpg" alt="zombride"  />
+        </a>
+    </div>
+	<div class="layer5">
+		<a href="https://youtu.be/m8UV4bzsOww?si=twvH5__IRE0q1JIm" aria-label="watch the video for beat still on youtube" target="_blank">
+           <img src="beat still still frame.PNG" alt="beat still live" />
+        </a>
+    </div>
+    <div class="layer5">
+		<a href="https://youtu.be/hZVH25HIwMA?si=bF6ChPsp3EZ-WtmT" aria-label="watch a live clip of break free live on youtube" target="_blank">
+           <img src="pv spot shot2.png" alt="break free live" />
+        </a>
+	</div>
+	<div class="layer5">
+		<a href="https://youtu.be/BgrNd5vQBZA?si=zrEXKcIr50El3gwR" aria-label="watch a live clip of attitude of gratitude on youtube" target="_blank">
+           <img src="petvocolcanocouncil.png" alt="attitude live" class="marquee"/>
+        </a>	   
+	</div>
+    <div class="layer5">
+        <a href="https://youtu.be/l4rAZoZzi48?si=tSL_1gHxgC800PWw" aria-label="watch a live clip of beat still on youtube" target="_blank">
+           <img src="marlon.jpg" alt="marlon" id="marlon" />
+        </a>
+    </div>
+    <div class="layer5">
+		<a href="https://youtu.be/PVQ3DYnfLxE?si=lfV-wCXh9BstxFZU" aria-label="watch a video clip for je te veux on youtube" target="_blank">
+           <img src="bjk mime.png" alt="mime" />
+        </a>
+    </div>
+	<div class="layer5">
+        <a href="https://distrokid.com/hyperfollow/petvolcano/je-te-veux" aria-label="Listen to the song 'Je Te Veux'" target="_blank">
+            <img src="jeteveux balloon2.png" alt="orange" />
+        </a>
+    </div>
+	<div class="layer5">
+		<a href="https://distrokid.com/hyperfollow/petvolcano/beat-still" aria-label="Listen to the song 'Beat Still'" target="_blank">
+            <img src="beat still art.png" alt="new image 2" />
+        </a>
+    </div>
+	<div class="layer5">
+        <a href="https://distrokid.com/hyperfollow/petvolcano/break-free" aria-label="Listen to the song 'Break Free'" target="_blank">
+         <img src="break free alt2-01.png" alt="break free" />
+        </a>
+    </div>
+	<div class="layer5">
+        <a href="https://distrokid.com/hyperfollow/petvolcano/on-a-sunny-day" aria-label="Listen to the song 'On a Sunny Day'" target="_blank">
+          <img src="bit o sunny day-01.png" alt="sunny day" />
+        </a>
+    </div>
+	<div class="layer5">
+        <a href="https://distrokid.com/hyperfollow/petvolcano/the-zombie-twist" aria-label="Listen to the song 'The Zombie Twist'" target="_blank">
+        	<img src="zombie twist art.png" alt="zombie twist" />
+        </a>
+    </div>
+	<div class="layer5">
+        <img src="ampeg1.png" alt="ampgeg" />
+    </div>
+</div>
+</div>
+
+<div class="content-section" id="contents">
+    
+    <!-- The initial content div that gets replaced -->
+    <div id="dynamic-content"></div> <!-- Initial content (preloaded with Home) -->
+    <div id="dates-content"></div> <!-- Div for dynamically loaded content for Dates -->
+    <div id="store-content"></div> <!-- Div for dynamically loaded content for Store -->
+    <div id="about-content"></div> <!-- Div for dynamically loaded content for About -->
+</div>
+
+<div class="navbar">
+    <a href="#home" id="scroll-to-top">Home</a>
+    <a href="#music" id="music-page">Stream</a>
+    <a href="#dates-content">Dates</a>
+    <a href="#store">Store</a>
+    <a href="#about">About</a>
+</div>
+
+<footer>
+    <p class="small-text">
+        &copy; 2025 Pet Volcano. All rights reserved.
+    </p>
+</footer>
+
+<!-- JavaScript Section -->
+<script>
+window.addEventListener('load', () => {
+    // Function to load content into dynamic-content div
+    function loadContent(url, targetId) {
+        const target = document.getElementById(targetId);  // Target div where content will be inserted
+
+        // Clear existing content
+        target.innerHTML = '';
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(html => {
+                target.innerHTML = html;  // Replace the content in the target div
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                // Re-initialize the carousel only when needed
+                if (document.querySelector('.carousel-slide')) {
+                    initializeCarousel();
+                }
+            })
+            .catch(error => {
+                console.error(`Error fetching ${url}:`, error);
+                target.innerHTML = '<p>Failed to load content. Please try again later.</p>';
+            });
+    }
+
+    // Initial preload of home.html content
+    loadContent('home.html', 'dynamic-content');
+
+    // Smooth scroll to the top (Home)
+document.getElementById('scroll-to-top').addEventListener('click', function (e) {
+    e.preventDefault();
+    
+    // Load the home content first
+    loadContent('home.html', 'dynamic-content');
+
+    // Add a delay before scrolling to the top
+    setTimeout(() => {
+        const target = document.querySelector('#home');
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 1000); // 1000ms = 1 second
+});
+
+document.getElementById('scroll-to-hiding').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // Load the home content first
+
+    // Add a delay before scrolling
+    setTimeout(() => {
+        const target = document.querySelector('#zombride');
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 1000); // 1000ms = 1 second
+});
+
+
+
+    // Smooth scroll for the Music link in the nav bar
+    document.querySelector('a[href="#music"]').addEventListener('click', function (e) {
+        e.preventDefault();
+        loadContent('music.html', 'dynamic-content');
+    });
+
+    // Smooth scroll for the Dates link in the nav bar
+    document.querySelector('a[href="#dates-content"]').addEventListener('click', function (e) {
+        e.preventDefault();
+        loadContent('dates.html', 'dynamic-content');
+    });
+
+    // Smooth scroll for the Store link in the nav bar
+    document.querySelector('a[href="#store"]').addEventListener('click', function (e) {
+        e.preventDefault();
+        loadContent('store.html', 'dynamic-content');
+    });
+
+    // Smooth scroll for the About link in the nav bar
+    document.querySelector('a[href="#about"]').addEventListener('click', function (e) {
+        e.preventDefault();
+        loadContent('about.html', 'dynamic-content');
+    });
+
+    // Flame layer hover effect
+    const button = document.querySelector('.button button');
+    const layer3Image = document.getElementById('layer3');
+
+    button.addEventListener('mouseenter', () => {
+        layer3Image.src = 'flamelayer.png';
+    });
+
+    button.addEventListener('mouseleave', () => {
+        layer3Image.src = 'image3.gif';
+    });
+
+    // Carousel functionality
+    function initializeCarousel() {
+        const carouselSlide = document.querySelector('.carousel-slide');
+        const carouselImages = document.querySelectorAll('.carousel-slide img');
+
+        if (!carouselSlide) return;  // Return early if carousel-slide does not exist
+
+        const prevBtn = document.querySelector('#prevBtn');
+        const nextBtn = document.querySelector('#nextBtn');
+
+        let counter = 1;
+        const size = carouselImages[0].clientWidth;
+
+        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+        nextBtn.addEventListener('click', () => {
+            carouselSlide.style.transition = "transform 0.4s ease-in-out";
+            counter++;
+            if (counter >= carouselImages.length - 1) counter = 0;
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        });
+
+        prevBtn.addEventListener('click', () => {
+            carouselSlide.style.transition = "transform 0.4s ease-in-out";
+            counter--;
+            if (counter < 0) counter = carouselImages.length - 2;
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        });
+    }
+
+    // Initialize the carousel
+    initializeCarousel();
+
+    document.getElementById('load-dates').addEventListener('click', function (e) {
+        e.preventDefault();
+        loadContent('dates.html', 'dynamic-content');
+    });
+});
+
+
+</script>
+</body>
+</html>

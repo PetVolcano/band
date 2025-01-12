@@ -1,0 +1,407 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+body,
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: "Orbitron", sans-serif;
+	overflow-x: hidden;
+	background: #000000;
+	color:#908F8F;
+	scroll-behavior: smooth;
+}
+
+.parallax-container {
+    position: relative;
+    height: 50vh; /* Matches the viewport height */
+    perspective: 1px; /* Enables parallax effect */
+    overflow-y: auto; /* Allows scrolling */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+	max-height: 1000px;
+}
+
+.parallax-layer {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the parent */
+    height: auto; /* Maintain aspect ratio */
+    max-height: inherit; /* Respect the parent's max-height */
+    object-fit: cover; /* Ensures the image fills the container proportionally */
+    z-index: -1; /* Keeps it behind other layers */
+}
+
+.bg-layer {
+    position: relative; /* Ensure proper positioning context for the image */
+    top: 0;
+    height: 380px; /* Restrict to viewport height */
+    overflow: hidden; /* Prevents content spilling */
+    transform: translateZ(-6px) scale(11); /* Adds depth for parallax */
+    pointer-events: none; /* Makes it non-interactive */
+    max-height: 99vh; /* Maximum height constraint */
+}
+
+/* Pet Volcano logo text */
+.layer1 {
+	top: 10%;
+	transform: translateZ(-.9px) scale(3);
+		min-width: 50vw;
+}
+/* Volcano image */
+.layer2 {
+	top: 10vh;
+	transform: translateZ(.3px) scale(5);
+	min-width: 50vw;
+}
+/* goddess */
+.layer3 {	
+	top: -5vh;
+	transform: translateZ(-.5px) scale(1.5);
+	min-width: 50vw;
+}
+/* smoke */
+.layer4 {
+    top: 200px;
+    transform: translateZ(0.5px) scale(2, 10); /* Scale width (1.1) and height (1.5) independently */
+	left: -1.5%;
+	min-width: 50vw;
+}
+
+
+/* Content within the parallax container */
+.content-layer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Places content above the background */
+    padding: 0px;
+    text-align: center;
+    overflow: visible;
+	flex-direction: column;
+	margin: 0;
+	top: 0;
+	
+}
+
+.content-layer p {
+	background: rgba(50,0,0, 0.5);
+	top: 0;
+	padding: 4px;
+	border-radius: 10px;
+}
+
+
+.lightit {
+    position: absolute;
+    top: 0; /* Adjust this value as needed to place it above the carousel */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-size: 1.5rem; /* Adjust font size if needed */
+    color: antiquewhite;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+.zombie-layer {
+    position: relative; /* Allows the section to follow natural document flow */
+    display: flex;
+    flex-direction: column; /* Stacks child elements vertically */
+    justify-content: flex-start; /* Aligns items at the top */
+    align-items: center; /* Centers images horizontally */
+    text-align: center;
+    gap: 30px; /* Adds uniform spacing between images */
+    margin: 0 auto; /* Centers the section horizontally */
+    padding: 30vh 0; /* Adds vertical padding to the section */
+    width: 100%; /* Ensures full-width container */
+}
+
+.zombie-layer img {
+    width: auto; /* Keeps original aspect ratio */
+    height: 200px; /* Ensures consistent image height */
+    object-fit: cover; /* Prevents distortion while filling the height */
+    margin: 0; /* Removes extra margins around images */
+    border-radius: 10px; /* Optional: Adds rounded corners for aesthetics */
+}
+
+.layer5, .layer6 {
+    text-align: center;
+    position: relative; /* Keeps the layer in normal flow */
+	max-width: 99vw;
+}
+
+.songselect {
+    position: absolute;
+    top: 130px; /* Adjust this value as needed to place it above the carousel */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-size: 1.5rem; /* Adjust font size if needed */
+    color: antiquewhite;
+    background: rgba(30, 0, 0, 0.4); /* Optional for contrast */
+    padding: 20px;
+    border-radius: 30px;
+}
+
+
+
+.parallax-image {
+	position: absolute;
+	max-width: 99%;
+	height: 50%;
+}
+
+
+#layer3 {
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+
+h1 {
+	margin: 0;
+	font-size: 3rem;
+	text-shadow: 0 0 10px #cb4335, 0 0 20px #cb4335, 0 0 30px #cb4335;
+}
+
+h2 {
+	margin: 0;
+	font-size: 3rem;
+}
+
+.small-text {
+	margin: 0;
+	font-size: 1rem; 
+}
+
+.blocktext {
+	margin: 0;
+	font-size: 1rem;
+	max-width: 90vw;
+	width: 1000px;
+}
+
+.mid-text {
+	margin: 0;
+	font-size: 1.5rem;
+	padding: 1;
+}
+
+.selectext {
+	margin: 0;
+	font-size: 1.5rem;
+	padding: 0;
+	z-index: 10;
+}
+
+.navbar {
+  overflow: hidden;
+  position:fixed;
+  bottom: 0;
+  width: 100%;
+  background: #000000;
+  z-index: 1000;
+  padding: 1px;
+  text-align: center;
+}
+
+.navbar a {
+	color: #C43537;
+	padding: 1% 1%;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	font-size: 2rem; 
+}
+
+.navbar a:hover {
+	background: rgba(100, 100, 20, 0.4); 
+}
+
+button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+	color:antiquewhite;
+	font-family: "Orbitron", sans-serif;
+	font-size: 1rem;
+}
+
+.button:hover {
+	background: rgba(100, 100, 20, 0.4); 
+}
+
+
+.jukebox {
+    background-color: #A7181A;
+    background-repeat: no-repeat;
+    border:thick;
+    cursor:pointer;
+    overflow:hidden;
+    outline:hidden;
+	color:#0D0202;
+	font-family: "Orbitron", sans-serif;
+	font-size: 3rem;
+	border-radius: 5px;
+}
+
+.jukebox:hover {
+	background: rgba(100, 100, 20, 0.5); 
+}
+
+
+
+footer {
+	background: #000000;
+	padding: 10px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	bottom: 0;
+}
+
+.glow-text {
+	color: #E0D9D9;
+	text-shadow: 0 0 5px #cb4335, 0 0 10px #cb4335, 0 0 20px #cb4335;
+}
+
+/* for the MUSIC player */
+.bg-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px; /* Adjusted max width of the entire background */
+    margin: auto;
+    height: 900px;
+    background-image: url('jukebox.png'); /* Replace with your desired background image */
+    background-size: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 20px 20px rgba(0,0,0,0.1);
+	z-index: 1; /* Ensure background is in front of other elements */
+	bottom: 0;
+	margin-top: 1vh; /* Adjust this value to control spacing */
+}
+
+/* Carousel container inside the background */
+.carousel-container {
+    width: 236px; /* Set your carousel width */
+    margin: auto;
+    background: rgba(255,255,255,0.7); /* Optional background for carousel container */
+    padding: 5px;
+    position: absolute;
+    top: 279px; /* Position 20% from the top of the image */
+    left: 49.5%;
+    transform: translateX(-50%); /* Center the carousel horizontally */
+    z-index: 0; /* Ensure carousel is behind the background image */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    overflow: hidden; /* Hide any overflow */
+}
+
+
+/* Carousel container inside the background */
+.controls-container {
+    width: 300px; /* Set your carousel width */
+    margin: auto;
+    background: rgba(255,255,255,0.7); /* Optional background for carousel container */
+    padding: 5px;
+    position: absolute;
+    top: 380px; /* Position 20% from the top of the image */
+    left: 49.5%;
+    transform: translateX(-50%); /* Center the carousel horizontally */
+    z-index: 2; /* Ensure carousel is behind the background image */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    overflow: hidden; /* Hide any overflow */
+	flex-direction: row;
+	display: flex;
+	justify-content:center;
+	border-radius: 5px;
+}
+
+/* The carousel slide styling remains the same as before */
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    height: 75px;
+}
+
+.carousel-slide a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 236px;
+    text-decoration: none;
+}
+
+.carousel-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.dates-section {
+	background: #000000;
+	padding: 1px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.content-section {
+	background: #000000;
+	padding: 1px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+.music-section {
+    background: #000000;
+    width: 1000px;
+    display: flex;
+}
+
+.marquee {
+	width: 40vh;
+	border-radius: 10px;
+	padding: 1px;
+	top: 0;
+}
+
+
+.logo {
+	width: 20vh;
+	border-radius: 10px;
+	padding: 1px;
+	top: 0;
+}
+
+.logosmall {
+	width: 10vh;
+	border-radius: 10px;
+	padding: 1px;
+	top: 0;
+}

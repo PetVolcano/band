@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+body,
+html {
+	height: 100vh;
+	margin: 0;
+	font-family: "Orbitron", sans-serif;
+	overflow-x: hidden;
+	background: #000000;
+	color:#414040;
+	scroll-behavior: smooth;
+}
+
+.parallax-container {
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	perspective: 1px;
+	position: relative;
+}
+
+.parallax-layer {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bg-layer {
+	transform: translateZ(-6px) scale(11);
+}
+
+.layer1 {
+	transform: translateZ(-.9px) scale(1.4);
+}
+
+.layer2 {
+	transform: translateZ(.1px) scale(2.1);
+}
+
+.layer3 {
+	transform: translateZ(-.55px) scale(1.1);
+}
+
+.layer4 {
+	transform: translateZ(.1px)scale(1.1);
+}
+
+.content-layer {
+	transform: translateZ(0);
+	position: relative;
+	height: 100vh;
+	display: flex;
+	justify-content:center;
+	align-items: top;
+	z-index: 1;
+	flex-direction: row;
+	padding: 20px;
+	text-align: center;
+}
+
+
+.content-layer p {
+	background: rgba(0,0,0, 0.1);
+	padding: 1px;
+	border-radius: 5px;
+}
+
+
+.parallax-image {
+	position: absolute;
+	max-width: 50%;
+	height: auto;
+}
+
+
+#bg-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+
+#layer3 {
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+
+h1 {
+	margin: 0;
+	font-size: 3rem;
+	text-shadow: 0 0 10px #cb4335, 0 0 20px #cb4335, 0 0 30px #cb4335;
+}
+
+
+
+.navbar {
+  overflow: hidden;
+  position:relative;
+  bottom: 0;
+  width: 100%;
+  background: #000000;
+  z-index: 1000;
+  padding: 10px;
+  text-align: center;
+}
+
+.navbar a {
+	color: #C43537;
+	padding: 30px 30px;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	font-size: 2rem; 
+}
+
+.navbar a:hover {
+	background: rgba(100, 100, 20, 0.4); 
+}
+
+button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+	color:antiquewhite;
+	font-family: "Orbitron", sans-serif;
+	font-size: 2rem;
+}
+
+.button:hover {
+	background: rgba(100, 100, 20, 0.4); 
+}
+
+
+.jukebox {
+    background-color: #A7181A;
+    background-repeat: no-repeat;
+    border:thick;
+    cursor:pointer;
+    overflow:hidden;
+    outline:hidden;
+	color:#0D0202;
+	font-family: "Orbitron", sans-serif;
+	font-size: 3rem;
+	border-radius: 5px;
+}
+
+.jukebox:hover {
+	background: rgba(100, 100, 20, 0.5); 
+}
+
+.content-section {
+	background: #000000;
+	padding: 1px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+footer {
+	background: #000000;
+	padding: 10px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.glow-text {
+	text-shadow: 0 0 5px #cb4335, 0 0 10px #cb4335, 0 0 20px #cb4335;
+}
+
+.small-text {
+		font-size: .8rem; 
+}
+
+.mid-text {
+		font-size: 1.5rem; 
+}
+
+h2 {
+		font-size: 3rem;
+}
+
+.marquee {
+	width: 400px;
+	border-radius: 20px;
+	padding: 1px;
+}
+
