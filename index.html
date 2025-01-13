@@ -25,64 +25,64 @@
     </div>
     <div class="content-layer lightit">
        <p id="home" class="button">
-          <button id="scroll-to-hiding">Light it on Fire!</button>
+          <button id="scroll-to-hiding"><span>&#8595;</span> Light it on Fire! <span>&#8595;</span></button>
        </p>
     </div>	
 	<div class="zombie-layer">
-		<h1 id="zombride">See Hear</h1>
+		<h3 id="zombride">See, Hear <br><span>&#8595;</span>Scroll, Click<span>&#8595;</span></h3>
 	<div class="layer5">
-		<a href="https://youtu.be/hZnOpW56WYg?si=ySg_3-Nfzi-uAmOb" aria-label="watch the video for the zombie twist on youtube" target="_blank">
-           <img src="zombie.jpg" alt="zombride"  />
+		<a href ="https://youtu.be/hZnOpW56WYg?si=ySg_3-Nfzi-uAmOb" aria-label="watch the video for the zombie twist on youtube" target="_blank">
+           <img class="button" src="zombie.jpg" alt="zombride"  />
         </a>
     </div>
 	<div class="layer5">
 		<a href="https://youtu.be/m8UV4bzsOww?si=twvH5__IRE0q1JIm" aria-label="watch the video for beat still on youtube" target="_blank">
-           <img src="beat still still frame.PNG" alt="beat still live" />
+           <img class="button" src="beat still still frame.PNG" alt="beat still live" />
         </a>
     </div>
     <div class="layer5">
 		<a href="https://youtu.be/hZVH25HIwMA?si=bF6ChPsp3EZ-WtmT" aria-label="watch a live clip of break free live on youtube" target="_blank">
-           <img src="pv spot shot2.png" alt="break free live" />
+           <img class="button" src="pv spot shot2.png" alt="break free live" />
         </a>
 	</div>
 	<div class="layer5">
 		<a href="https://youtu.be/BgrNd5vQBZA?si=zrEXKcIr50El3gwR" aria-label="watch a live clip of attitude of gratitude on youtube" target="_blank">
-           <img src="petvocolcanocouncil.png" alt="attitude live" class="marquee"/>
+           <img class="button" src="petvocolcanocouncil.png" alt="attitude live"/>
         </a>	   
 	</div>
     <div class="layer5">
         <a href="https://youtu.be/l4rAZoZzi48?si=tSL_1gHxgC800PWw" aria-label="watch a live clip of beat still on youtube" target="_blank">
-           <img src="marlon.jpg" alt="marlon" id="marlon" />
+           <img class="button" src="marlon.jpg" alt="marlon" id="marlon" />
         </a>
     </div>
     <div class="layer5">
 		<a href="https://youtu.be/PVQ3DYnfLxE?si=lfV-wCXh9BstxFZU" aria-label="watch a video clip for je te veux on youtube" target="_blank">
-           <img src="bjk mime.png" alt="mime" />
+           <img class="button" src="bjk mime.png" alt="mime" />
         </a>
     </div>
 	<div class="layer5">
         <a href="https://distrokid.com/hyperfollow/petvolcano/je-te-veux" aria-label="Listen to the song 'Je Te Veux'" target="_blank">
-            <img src="jeteveux balloon2.png" alt="orange" />
+            <img class="button" src="jeteveux balloon2.png" alt="orange" />
         </a>
     </div>
 	<div class="layer5">
 		<a href="https://distrokid.com/hyperfollow/petvolcano/beat-still" aria-label="Listen to the song 'Beat Still'" target="_blank">
-            <img src="beat still art.png" alt="new image 2" />
+            <img class="button" src="beat still art.png" alt="new image 2" />
         </a>
     </div>
 	<div class="layer5">
         <a href="https://distrokid.com/hyperfollow/petvolcano/break-free" aria-label="Listen to the song 'Break Free'" target="_blank">
-         <img src="break free alt2-01.png" alt="break free" />
+         <img class="button" src="break free alt2-01.png" alt="break free" />
         </a>
     </div>
 	<div class="layer5">
         <a href="https://distrokid.com/hyperfollow/petvolcano/on-a-sunny-day" aria-label="Listen to the song 'On a Sunny Day'" target="_blank">
-          <img src="bit o sunny day-01.png" alt="sunny day" />
+          <img class="button" src="bit o sunny day-01.png" alt="sunny day" />
         </a>
     </div>
 	<div class="layer5">
         <a href="https://distrokid.com/hyperfollow/petvolcano/the-zombie-twist" aria-label="Listen to the song 'The Zombie Twist'" target="_blank">
-        	<img src="zombie twist art.png" alt="zombie twist" />
+        	<img class="button" src="zombie twist art.png" alt="zombie twist" />
         </a>
     </div>
 	<div class="layer5">
@@ -101,11 +101,11 @@
 </div>
 
 <div class="navbar">
-    <a href="#home" id="scroll-to-top">Home</a>
-    <a href="#music" id="music-page">Stream</a>
-    <a href="#dates-content">Dates</a>
-    <a href="#store">Store</a>
-    <a href="#about">About</a>
+    <a href="#home" id="scroll-to-top"><span>&#8593;</span>Home</a>
+    <a href="#music" id="music-page"><span>&#8593;</span>Stream</a>
+    <a href="#dates"><span>&#8593;</span>Dates</a>
+    <a href="#store"><span>&#8593;</span>Store</a>
+    <a href="#about"><span>&#8593;</span>About</a>
 </div>
 
 <footer>
@@ -118,107 +118,117 @@
 <script>
 window.addEventListener('load', () => {
     // Function to load content into dynamic-content div
-    function loadContent(url, targetId) {
-        const target = document.getElementById(targetId);  // Target div where content will be inserted
-
-        // Clear existing content
-        target.innerHTML = '';
+    function loadContent(url, targetId, scroll = true) {
+        const target = document.getElementById(targetId); // Target div where content will be inserted
+        target.innerHTML = ''; // Clear existing content
 
         fetch(url)
-            .then(response => {
+            .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 return response.text();
             })
-            .then(html => {
-                target.innerHTML = html;  // Replace the content in the target div
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            .then((html) => {
+                target.innerHTML = html; // Replace the content in the target div
 
-                // Re-initialize the carousel only when needed
-                if (document.querySelector('.carousel-slide')) {
-                    initializeCarousel();
+                // Smooth scroll to bring the content into view
+                if (scroll) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
+
+                // After content loads, re-attach any dynamic event listeners
+                initializeScript();
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error(`Error fetching ${url}:`, error);
                 target.innerHTML = '<p>Failed to load content. Please try again later.</p>';
             });
     }
 
-    // Initial preload of home.html content
-    loadContent('home.html', 'dynamic-content');
+    // Load the home.html content initially when the page loads
+    loadContent('home.html', 'dynamic-content', false);
 
-    // Smooth scroll to the top (Home)
-document.getElementById('scroll-to-top').addEventListener('click', function (e) {
-    e.preventDefault();
-    
-    // Load the home content first
-    loadContent('home.html', 'dynamic-content');
+    // Smooth scroll for the Home link in the navbar
+    document.querySelector('a[href="#home"]').addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default anchor behavior
 
-    // Add a delay before scrolling to the top
-    setTimeout(() => {
-        const target = document.querySelector('#home');
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 1000); // 1000ms = 1 second
-});
+        // Reload the home.html content
+        loadContent('home.html', 'dynamic-content', false);
 
-document.getElementById('scroll-to-hiding').addEventListener('click', function (e) {
-    e.preventDefault();
+        // Smooth scroll back to the top
+        setTimeout(() => {
+            const target = document.querySelector('#home');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 100); // Slight delay to ensure smooth scrolling works
+    });
 
-    // Load the home content first
+    // Smooth scroll for the static "scroll-to-hiding" button
+    document.getElementById('scroll-to-hiding').addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default behavior
 
-    // Add a delay before scrolling
-    setTimeout(() => {
+        // Smooth scroll to #zombride
         const target = document.querySelector('#zombride');
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 1000); // 1000ms = 1 second
-});
-
-
-
-    // Smooth scroll for the Music link in the nav bar
-    document.querySelector('a[href="#music"]').addEventListener('click', function (e) {
-        e.preventDefault();
-        loadContent('music.html', 'dynamic-content');
+        if (target) {
+            setTimeout(() => {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 1000); // 1-second delay
+        }
     });
 
-    // Smooth scroll for the Dates link in the nav bar
-    document.querySelector('a[href="#dates-content"]').addEventListener('click', function (e) {
-        e.preventDefault();
-        loadContent('dates.html', 'dynamic-content');
+    // Add event delegation for "scroll-to-hiding2" in dynamically loaded content
+    document.getElementById('dynamic-content').addEventListener('click', function (e) {
+        const clickedElement = e.target;
+
+        // Check if the clicked element is the button or its child (e.g., the img inside the button)
+        if (clickedElement.id === 'scroll-to-hiding2' || clickedElement.closest('#scroll-to-hiding2')) {
+            e.preventDefault(); // Prevent default behavior
+
+            // Smooth scroll to #zombride
+            const target = document.querySelector('#zombride');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
     });
 
-    // Smooth scroll for the Store link in the nav bar
-    document.querySelector('a[href="#store"]').addEventListener('click', function (e) {
-        e.preventDefault();
-        loadContent('store.html', 'dynamic-content');
-    });
-
-    // Smooth scroll for the About link in the nav bar
-    document.querySelector('a[href="#about"]').addEventListener('click', function (e) {
-        e.preventDefault();
-        loadContent('about.html', 'dynamic-content');
+    // Generalized navbar link handling for dynamically loaded content
+    document.querySelectorAll('.navbar a').forEach((navLink) => {
+        const targetId = navLink.getAttribute('href').substring(1); // Extract target ID
+        if (targetId && targetId !== 'home') {
+            navLink.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default behavior
+                loadContent(`${targetId}.html`, 'dynamic-content'); // Load the corresponding content
+            });
+        }
     });
 
     // Flame layer hover effect
-    const button = document.querySelector('.button button');
-    const layer3Image = document.getElementById('layer3');
+    function initializeScript() {
+        const button = document.querySelector('.button button');
+        const layer3Image = document.getElementById('layer3');
 
-    button.addEventListener('mouseenter', () => {
-        layer3Image.src = 'flamelayer.png';
-    });
+        if (button && layer3Image) { // Make sure elements exist before attaching events
+            button.addEventListener('mouseenter', () => {
+                layer3Image.src = 'flamelayer.png';
+            });
 
-    button.addEventListener('mouseleave', () => {
-        layer3Image.src = 'image3.gif';
-    });
+            button.addEventListener('mouseleave', () => {
+                layer3Image.src = 'image3.gif';
+            });
+        }
+    }
+
+    initializeScript(); // Call this once to ensure it initializes immediately
 
     // Carousel functionality
     function initializeCarousel() {
         const carouselSlide = document.querySelector('.carousel-slide');
         const carouselImages = document.querySelectorAll('.carousel-slide img');
 
-        if (!carouselSlide) return;  // Return early if carousel-slide does not exist
+        if (!carouselSlide) return; // Return early if carousel-slide does not exist
 
         const prevBtn = document.querySelector('#prevBtn');
         const nextBtn = document.querySelector('#nextBtn');
@@ -226,33 +236,30 @@ document.getElementById('scroll-to-hiding').addEventListener('click', function (
         let counter = 1;
         const size = carouselImages[0].clientWidth;
 
-        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        carouselSlide.style.transform = 'translateX(' + -size * counter + 'px)';
 
         nextBtn.addEventListener('click', () => {
-            carouselSlide.style.transition = "transform 0.4s ease-in-out";
+            carouselSlide.style.transition = 'transform 0.4s ease-in-out';
             counter++;
             if (counter >= carouselImages.length - 1) counter = 0;
-            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+            carouselSlide.style.transform = 'translateX(' + -size * counter + 'px)';
         });
 
         prevBtn.addEventListener('click', () => {
-            carouselSlide.style.transition = "transform 0.4s ease-in-out";
+            carouselSlide.style.transition = 'transform 0.4s ease-in-out';
             counter--;
             if (counter < 0) counter = carouselImages.length - 2;
-            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+            carouselSlide.style.transform = 'translateX(' + -size * counter + 'px)';
         });
     }
 
     // Initialize the carousel
     initializeCarousel();
-
-    document.getElementById('load-dates').addEventListener('click', function (e) {
-        e.preventDefault();
-        loadContent('dates.html', 'dynamic-content');
-    });
 });
 
-
 </script>
+
+
+
 </body>
 </html>

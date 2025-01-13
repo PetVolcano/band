@@ -51,25 +51,32 @@ html {
     transform: translateZ(-6px) scale(11); /* Adds depth for parallax */
     pointer-events: none; /* Makes it non-interactive */
     max-height: 99vh; /* Maximum height constraint */
+	z-index: -5; /* Background should be behind all layers */
 }
 
 /* Pet Volcano logo text */
 .layer1 {
 	top: 10%;
 	transform: translateZ(-.9px) scale(3);
-		min-width: 50vw;
+	min-width: 50vw;
+	z-index: 4; /* Define the order of stacking */
+	will-change: transform;
 }
 /* Volcano image */
 .layer2 {
 	top: 10vh;
 	transform: translateZ(.3px) scale(5);
 	min-width: 50vw;
+	z-index: 3;
+	will-change: transform;
 }
 /* goddess */
 .layer3 {	
 	top: -5vh;
 	transform: translateZ(-.5px) scale(1.5);
 	min-width: 50vw;
+	z-index: 2;
+	will-change: transform;
 }
 /* smoke */
 .layer4 {
@@ -77,6 +84,8 @@ html {
     transform: translateZ(0.5px) scale(2, 10); /* Scale width (1.1) and height (1.5) independently */
 	left: -1.5%;
 	min-width: 50vw;
+	z-index: -4; /* Smoke should be behind other layers */
+	will-change: transform;
 }
 
 
@@ -85,7 +94,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1; /* Places content above the background */
+    z-index: 9; /* Places content above the background */
     padding: 0px;
     text-align: center;
     overflow: visible;
@@ -108,7 +117,7 @@ html {
     top: 0; /* Adjust this value as needed to place it above the carousel */
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 10;
     font-size: 1.5rem; /* Adjust font size if needed */
     color: antiquewhite;
     padding: 10px;
@@ -127,6 +136,7 @@ html {
     margin: 0 auto; /* Centers the section horizontally */
     padding: 30vh 0; /* Adds vertical padding to the section */
     width: 100%; /* Ensures full-width container */
+	z-index: 8
 }
 
 .zombie-layer img {
@@ -137,23 +147,36 @@ html {
     border-radius: 10px; /* Optional: Adds rounded corners for aesthetics */
 }
 
-.layer5, .layer6 {
+.layer5 {
     text-align: center;
     position: relative; /* Keeps the layer in normal flow */
 	max-width: 99vw;
+	z-index: 11;
+	will-change: transform;
 }
 
 .songselect {
     position: absolute;
-    top: 130px; /* Adjust this value as needed to place it above the carousel */
+    top: 75px; /* Adjust this value as needed to place it above the carousel */
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     z-index: 2;
     font-size: 1.5rem; /* Adjust font size if needed */
-    color: antiquewhite;
-    background: rgba(30, 0, 0, 0.4); /* Optional for contrast */
-    padding: 20px;
-    border-radius: 30px;
+    color: #FFFFFF;
+    background: rgba(200, 100, 100, 0.9); /* Optional for contrast */
+    padding: 25px;
+    border-top-left-radius: 120px;
+    border-top-right-radius: 120px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    line-height: 1; /* Adjust line-height to control vertical spacing */
+}
+.songselect span {
+    display: block;
 }
 
 
@@ -170,7 +193,6 @@ html {
 }
 
 
-
 h1 {
 	margin: 0;
 	font-size: 3rem;
@@ -180,6 +202,13 @@ h1 {
 h2 {
 	margin: 0;
 	font-size: 3rem;
+}
+
+h3 {
+	margin: 0;
+	font-size: 3rem;
+	text-shadow: 0 0 10px #cb4335, 0 0 20px #cb4335, 0 0 30px #cb4335;
+	color: black;
 }
 
 .small-text {
@@ -213,7 +242,7 @@ h2 {
   bottom: 0;
   width: 100%;
   background: #000000;
-  z-index: 1000;
+  z-index: 9999;
   padding: 1px;
   text-align: center;
 }
@@ -242,10 +271,28 @@ button {
 	font-size: 1rem;
 }
 
-.button:hover {
-	background: rgba(100, 100, 20, 0.4); 
+.button:hover, .button:active {
+	background: rgba(100, 100, 20, 0.4);
+	transform: scale(1.1);
+	border-radius: 10px;
 }
 
+scroll-to-hiding {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+	color:antiquewhite;
+	font-family: "Orbitron", sans-serif;
+	font-size: 1rem;
+}
+
+scroll-to-hiding:hover, scroll-to-hiding:active {
+	background: rgba(100, 100, 20, 0.4);
+	transform: scale(1.1);
+}
 
 .jukebox {
     background-color: #A7181A;
@@ -319,16 +366,16 @@ footer {
 
 /* Carousel container inside the background */
 .controls-container {
-    width: 300px; /* Set your carousel width */
+    width: 160px; /* Set your carousel width */
     margin: auto;
-    background: rgba(255,255,255,0.7); /* Optional background for carousel container */
+    background: rgba(300,100,300,0.7); /* Optional background for carousel container */
     padding: 5px;
     position: absolute;
     top: 380px; /* Position 20% from the top of the image */
     left: 49.5%;
     transform: translateX(-50%); /* Center the carousel horizontally */
     z-index: 2; /* Ensure carousel is behind the background image */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
     overflow: hidden; /* Hide any overflow */
 	flex-direction: row;
 	display: flex;
@@ -359,7 +406,24 @@ footer {
 
 .dates-section {
 	background: #000000;
-	padding: 1px;
+	padding: 20px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.dates-section::after {
+    content: "";
+    display: block;
+    height: 300px; /* Adjust this to your needs */
+}
+
+.home-section {
+	background: #000000;
+	padding: 20px;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -387,8 +451,9 @@ footer {
 .marquee {
 	width: 40vh;
 	border-radius: 10px;
-	padding: 1px;
+	padding: 0px;
 	top: 0;
+	margin-bottom: 10px;
 }
 
 
