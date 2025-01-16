@@ -54,22 +54,16 @@ html {
 	z-index: -5; /* Background should be behind all layers */
 }
 
-/* Pet Volcano logo text */
-.layer1 {
-	top: 10%;
-	transform: translateZ(-.9px) scale(3);
+/* smoke */
+.layer4 {
+    top: 200px;
+    transform: translateZ(0.5px); /* Scale width (1.1) and height (1.5) independently */
+	left: -1.5%;
 	min-width: 50vw;
-	z-index: 4; /* Define the order of stacking */
+	z-index: -4; /* Smoke should be behind other layers */
 	will-change: transform;
 }
-/* Volcano image */
-.layer2 {
-	top: 10vh;
-	transform: translateZ(.3px) scale(5);
-	min-width: 50vw;
-	z-index: 3;
-	will-change: transform;
-}
+
 /* goddess */
 .layer3 {	
 	top: -5vh;
@@ -78,13 +72,23 @@ html {
 	z-index: 2;
 	will-change: transform;
 }
-/* smoke */
-.layer4 {
-    top: 200px;
-    transform: translateZ(0.5px) scale(2, 10); /* Scale width (1.1) and height (1.5) independently */
-	left: -1.5%;
+
+
+/* Volcano image */
+.layer2 {
+	top: 10vh;
+	transform: translateZ(.3px) scale(5);
 	min-width: 50vw;
-	z-index: -4; /* Smoke should be behind other layers */
+	z-index: 3;
+	will-change: transform;
+}
+
+/* Pet Volcano logo text */
+.layer1 {
+	top: 10%;
+	transform: translateZ(-.9px) scale(3);
+	min-width: 50vw;
+	z-index: 4; /* Define the order of stacking */
 	will-change: transform;
 }
 
@@ -180,7 +184,6 @@ html {
 }
 
 
-
 .parallax-image {
 	position: absolute;
 	max-width: 99%;
@@ -206,9 +209,9 @@ h2 {
 
 h3 {
 	margin: 0;
-	font-size: 3rem;
+	font-size: 2rem;
 	text-shadow: 0 0 10px #cb4335, 0 0 20px #cb4335, 0 0 30px #cb4335;
-	color: black;
+	color: white;
 }
 
 .small-text {
@@ -259,6 +262,35 @@ h3 {
 	background: rgba(100, 100, 20, 0.4); 
 }
 
+/* Adjust font size for smaller screens */
+@media (max-width: 768px) {
+    .navbar a {
+        font-size: 1.5rem; /* Adjust this value as needed */
+    }
+	
+	    h2 {
+        font-size: 2rem; /* Adjust this value for h2 */
+    }
+	
+	button, .my-button-class {
+		font-size: .9rem !important; /* Smaller size for very small screens */
+	}
+}
+
+@media (max-width: 480px) {
+    .navbar a {
+        font-size: 1rem; /* Even smaller for very small screens */
+    }
+	
+    h2 {
+        font-size: 1.8rem; /* Smaller size for very small screens */
+    }
+	
+	button, .my-button-class {
+		font-size: .8rem !important; /* Smaller size for very small screens */
+	}
+}
+
 button {
     background-color: transparent;
     background-repeat: no-repeat;
@@ -303,7 +335,7 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
     outline:hidden;
 	color:#0D0202;
 	font-family: "Orbitron", sans-serif;
-	font-size: 3rem;
+	font-size: 2rem;
 	border-radius: 5px;
 }
 
@@ -315,12 +347,13 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 
 footer {
 	background: #000000;
-	padding: 10px;
+	padding: 25px 0;
 	text-align: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	bottom: 0;
+	position: relative;
 }
 
 .glow-text {
@@ -418,7 +451,7 @@ footer {
 .dates-section::after {
     content: "";
     display: block;
-    height: 300px; /* Adjust this to your needs */
+    height: 150px; /* Adjust this to your needs */
 }
 
 .home-section {
@@ -430,6 +463,12 @@ footer {
 	justify-content: center;
 	align-items: center;
 
+}
+
+.home-section::after {
+    content: "";
+    display: block;
+    height: 0px; /* Adjust this to your needs */
 }
 
 .content-section {
@@ -469,4 +508,21 @@ footer {
 	border-radius: 10px;
 	padding: 1px;
 	top: 0;
+}
+
+.social-media-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between icons */
+    margin-top: 10px;
+}
+
+.social-icon img {
+    width: 30px; /* Adjust size as needed */
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon img:hover {
+    transform: scale(1.2); /* Slight zoom effect on hover */
 }

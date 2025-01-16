@@ -25,11 +25,11 @@
     </div>
     <div class="content-layer lightit">
        <p id="home" class="button">
-          <button id="scroll-to-hiding"><span>&#8595;</span> Light it on Fire! <span>&#8595;</span></button>
+          <button id="scroll-to-hiding"><span>&#8595; Light it on Fire! &#8595;</span></button>
        </p>
     </div>	
 	<div class="zombie-layer">
-		<h3 id="zombride">See, Hear <br><span>&#8595;</span>Scroll, Click<span>&#8595;</span></h3>
+		<h3 id="zombride"><span>&#8595;</span>Scroll, Click<span>&#8595;</span></h3>
 	<div class="layer5">
 		<a href ="https://youtu.be/hZnOpW56WYg?si=ySg_3-Nfzi-uAmOb" aria-label="watch the video for the zombie twist on youtube" target="_blank">
            <img class="button" src="zombie.jpg" alt="zombride"  />
@@ -99,7 +99,10 @@
     <div id="store-content"></div> <!-- Div for dynamically loaded content for Store -->
     <div id="about-content"></div> <!-- Div for dynamically loaded content for About -->
 </div>
-
+	<div class="social-media-links">
+        <a href="https://facebook.com/petvolcano" target="_blank" class="social-icon"><img src="facebook-icon.png" alt="Facebook"></a>
+        <a href="https://instagram.com/petvolcanoband" target="_blank" class="social-icon"><img src="instagram-icon.png" alt="Instagram"></a>
+    </div>
 <div class="navbar">
     <a href="#home" id="scroll-to-top"><span>&#8593;</span>Home</a>
     <a href="#music" id="music-page"><span>&#8593;</span>Stream</a>
@@ -107,11 +110,11 @@
     <a href="#store"><span>&#8593;</span>Store</a>
     <a href="#about"><span>&#8593;</span>About</a>
 </div>
-
+	
 <footer>
     <p class="small-text">
         &copy; 2025 Pet Volcano. All rights reserved.
-    </p>
+    </p><p>
 </footer>
 
 <!-- JavaScript Section -->
@@ -221,37 +224,64 @@ window.addEventListener('load', () => {
         }
     }
 
-    initializeScript(); // Call this once to ensure it initializes immediately
+function initializeCarousel() {
+    const carouselSlide = document.querySelector('.carousel-slide');
+    const carouselImages = document.querySelectorAll('.carousel-slide img');
 
-    // Carousel functionality
-    function initializeCarousel() {
-        const carouselSlide = document.querySelector('.carousel-slide');
-        const carouselImages = document.querySelectorAll('.carousel-slide img');
+    if (!carouselSlide || !carouselImages.length) return; // Check if elements exist
 
-        if (!carouselSlide) return; // Return early if carousel-slide does not exist
+    const prevBtn = document.querySelector('#prevBtn');
+    const nextBtn = document.querySelector('#nextBtn');
 
-        const prevBtn = document.querySelector('#prevBtn');
-        const nextBtn = document.querySelector('#nextBtn');
+    let counter = 1;
+    const size = carouselImages[0].clientWidth;
 
-        let counter = 1;
-        const size = carouselImages[0].clientWidth;
+    carouselSlide.style.transform = 'translateX(' + -size * counter + 'px)';
 
+    nextBtn?.addEventListener('click', () => {
+        carouselSlide.style.transition = 'transform 0.4s ease-in-out';
+        counter++;
+        if (counter >= carouselImages.length - 1) counter = 0;
         carouselSlide.style.transform = 'translateX(' + -size * counter + 'px)';
+    });
 
-        nextBtn.addEventListener('click', () => {
-            carouselSlide.style.transition = 'transform 0.4s ease-in-out';
-            counter++;
-            if (counter >= carouselImages.length - 1) counter = 0;
-            carouselSlide.style.transform = 'translateX(' + -size * counter + 'px)';
-        });
+    prevBtn?.addEventListener('click', () => {
+        carouselSlide.style.transition = 'transform 0.4s ease-in-out';
+        counter--;
+        if (counter < 0) counter = carouselImages.length - 2;
+        carouselSlide.style.transform = 'translateX(' + -size * counter + 'px)';
+    });
+}
 
-        prevBtn.addEventListener('click', () => {
-            carouselSlide.style.transition = 'transform 0.4s ease-in-out';
-            counter--;
-            if (counter < 0) counter = carouselImages.length - 2;
-            carouselSlide.style.transform = 'translateX(' + -size * counter + 'px)';
+// Update loadContent to include carousel initialization
+function loadContent(url, targetId, scroll = true) {
+    const target = document.getElementById(targetId); // Target div where content will be inserted
+    target.innerHTML = ''; // Clear existing content
+
+    fetch(url)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then((html) => {
+            target.innerHTML = html; // Replace the content in the target div
+
+            // Smooth scroll to bring the content into view
+            if (scroll) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // Reinitialize carousel after dynamic content is loaded
+            initializeCarousel();
+        })
+        .catch((error) => {
+            console.error(`Error fetching ${url}:`, error);
+            target.innerHTML = '<p>Failed to load content. Please try again later.</p>';
         });
-    }
+}
+
 
     // Initialize the carousel
     initializeCarousel();
