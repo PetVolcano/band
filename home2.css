@@ -64,6 +64,7 @@ html {
 	min-width: 50vw;
 	z-index: 1; /* Smoke should be behind other layers */
 	will-change: transform;
+	opacity: 0.69;
 }
 
 /* goddess */
