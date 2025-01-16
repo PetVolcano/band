@@ -22,6 +22,7 @@ html {
 	z-index: 0; /* Explicit stacking context */
 	background-color:#150202;
 	transform: translateZ(0);
+	transform-style: preserve-3d;
 }
 
 .parallax-layer {
@@ -33,6 +34,11 @@ html {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.layer0, .layer1, .layer2, .layer3 {
+    backface-visibility: hidden;
+    will-change: transform;
 }
 
 #bg-image {
@@ -68,21 +74,14 @@ html {
 	left: -1.5%;
 }
 
-@supports (-webkit-overflow-scrolling: touch) {
-    .layer0 {
-        z-index: 1 !important; /* Enforce stacking in Safari */
-    }
-}
-
-/* goddess */
-.layer3 {	
-	top: -5vh;
-	transform: translateZ(-.5px) scale(1.5);
+/* Pet Volcano logo text */
+.layer1 {
+	top: 1vh;
+	transform: translateZ(-.9px) scale(3);
 	min-width: 50vw;
-	z-index: 2;
+	z-index: 4; /* Define the order of stacking */
 	will-change: transform;
 }
-
 
 /* Volcano image */
 .layer2 {
@@ -91,14 +90,16 @@ html {
 	min-width: 50vw;
 	z-index: 3;
 	will-change: transform;
+	opacity: 1;
 }
 
-/* Pet Volcano logo text */
-.layer1 {
-	top: 1vh;
-	transform: translateZ(-.9px) scale(3);
+
+/* goddess */
+.layer3 {	
+	top: -5vh;
+	transform: translateZ(-.5px) scale(1.5);
 	min-width: 50vw;
-	z-index: 4; /* Define the order of stacking */
+	z-index: 2;
 	will-change: transform;
 }
 
@@ -388,7 +389,7 @@ footer {
     justify-content: center;
     align-items: center;
     box-shadow: 0 20px 20px rgba(0,0,0,0.1);
-	z-index: 1; /* Ensure background is in front of other elements */
+	z-index: .5; /* Ensure background is in front of other elements */
 	bottom: 0;
 	margin-top: 1vh; /* Adjust this value to control spacing */
 }
