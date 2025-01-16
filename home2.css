@@ -67,6 +67,19 @@ html {
 	opacity: 0.69;
 }
 
+/* Pseudo-element for z-index adjustment */
+.layer0::before {
+    content: ''; /* Necessary to create the pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2; /* Higher than the main element */
+    pointer-events: none; /* Ensures it doesn’t interfere with interactivity */
+    background: transparent; /* Adjust if needed */
+}
+
 /* goddess */
 .layer3 {	
 	top: -5vh;
