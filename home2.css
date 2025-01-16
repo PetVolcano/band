@@ -63,8 +63,9 @@ html {
 	left: -1.5%;
 	min-width: 50vw;
 	z-index: 1; /* Smoke should be behind other layers */
-	will-change: transform;
+	will-change: auto;
 	opacity: 0.69;
+	background: rgba(255, 255, 0, 0.3);
 }
 
 /* goddess */
@@ -74,6 +75,7 @@ html {
 	min-width: 50vw;
 	z-index: 2;
 	will-change: transform;
+	background: rgba(0, 0, 255, 0.3);
 }
 
 
@@ -84,6 +86,7 @@ html {
 	min-width: 50vw;
 	z-index: 3;
 	will-change: transform;
+	background: rgba(0, 255, 0, 0.3);
 }
 
 /* Pet Volcano logo text */
@@ -93,6 +96,7 @@ html {
 	min-width: 50vw;
 	z-index: 4; /* Define the order of stacking */
 	will-change: transform;
+	background: rgba(255, 0, 0, 0.3);
 }
 
 
