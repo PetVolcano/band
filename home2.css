@@ -66,7 +66,7 @@ html {
 /* smoke */
 .layer0 {
     top: 10vh;
-    transform: translateZ(0.5px) scale(2.0, 4.0);
+    transform: translateZ(-1.5px) scale(4.0, 7.0);
 	min-width: 50vw;
 	z-index: 1; /* Smoke should be behind other layers */
 	will-change: transform;
