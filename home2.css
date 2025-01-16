@@ -20,6 +20,7 @@ html {
     overflow-x: hidden; /* Prevent horizontal overflow */
 	max-height: 1000px;
 	z-index: 0; /* Explicit stacking context */
+	background-color:#150202;
 }
 
 .parallax-layer {
@@ -34,14 +35,14 @@ html {
 }
 
 #bg-image {
-    position: absolute;
+	position: absolute;
     top: 0;
     left: 0;
     width: 100%; /* Full width of the parent */
-    height: auto; /* Maintain aspect ratio */
+    height: 100vh; /* Maintain aspect ratio */
     max-height: inherit; /* Respect the parent's max-height */
     object-fit: cover; /* Ensures the image fills the container proportionally */
-    z-index: -1; /* Keeps it behind other layers */
+    z-index: 0; /* Keeps it behind other layers */
 }
 
 .bg-layer {
@@ -52,7 +53,7 @@ html {
     transform: translateZ(-6px) scale(11); /* Adds depth for parallax */
     pointer-events: none; /* Makes it non-interactive */
     max-height: 99vh; /* Maximum height constraint */
-	z-index: -5; /* Background should be behind all layers */
+	z-index: 0; /* Background should be behind all layers */
 }
 
 /* smoke */
@@ -61,7 +62,7 @@ html {
     transform: translateZ(0.5px) scale(1.5, 4);
 	left: -1.5%;
 	min-width: 50vw;
-	z-index: -4; /* Smoke should be behind other layers */
+	z-index: 1; /* Smoke should be behind other layers */
 	will-change: transform;
 }
 
@@ -276,6 +277,7 @@ h3 {
 	button, .my-button-class {
 		font-size: .9rem !important; /* Smaller size for very small screens */
 	}
+	
 }
 
 @media (max-width: 480px) {
@@ -290,6 +292,7 @@ h3 {
 	button, .my-button-class {
 		font-size: .8rem !important; /* Smaller size for very small screens */
 	}
+	
 }
 
 button {
