@@ -59,12 +59,12 @@ html {
 /* smoke */
 .layer0 {
     top: 50px;
-    transform: translateZ(0.5px) scale(1.5, 4);
+    transform: translateZ(0.5px) scale(1.5, 4.0);
 	left: -1.5%;
 	min-width: 50vw;
 	z-index: 1; /* Smoke should be behind other layers */
 	will-change: auto;
-	opacity: 0.69;
+	opacity: 0.7;
 }
 
 /* Pseudo-element for z-index adjustment */
