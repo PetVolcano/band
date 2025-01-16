@@ -59,8 +59,7 @@ html {
 /* smoke */
 .layer0 {
     top: 50px;
-    transform: translateZ(0.5px) scale(2.0);
-	left: -1.5%;
+    transform: translateZ(0.5px) scale(2.0, 4.0);
 	min-width: 50vw;
 	z-index: 1; /* Smoke should be behind other layers */
 	will-change: auto;
@@ -97,6 +96,7 @@ html {
 	min-width: 50vw;
 	z-index: 3;
 	will-change: transform;
+	left: 3%;
 }
 
 /* Pet Volcano logo text */
