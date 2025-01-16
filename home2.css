@@ -21,6 +21,7 @@ html {
 	max-height: 1000px;
 	z-index: 0; /* Explicit stacking context */
 	background-color:#150202;
+	transform: translateZ(0);
 }
 
 .parallax-layer {
@@ -42,7 +43,7 @@ html {
     height: 100vh; /* Maintain aspect ratio */
     max-height: inherit; /* Respect the parent's max-height */
     object-fit: cover; /* Ensures the image fills the container proportionally */
-    z-index: 0; /* Keeps it behind other layers */
+    z-index: -10; /* Keeps it behind other layers */
 }
 
 .bg-layer {
@@ -67,18 +68,10 @@ html {
 	left: -1.5%;
 }
 
-/* Pseudo-element for z-index adjustment */
-.layer0::before {
-    content: '';
-    display: block; /* Makes sure it behaves as an element */
-    position: absolute; /* Create an independent element layer */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2; /* Higher stacking layer */
-    pointer-events: none; /* No interference with clicks */
-    background: transparent; /* Or apply any overlay if needed */
+@supports (-webkit-overflow-scrolling: touch) {
+    .layer0 {
+        z-index: 1 !important; /* Enforce stacking in Safari */
+    }
 }
 
 /* goddess */
