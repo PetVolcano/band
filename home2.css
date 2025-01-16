@@ -62,21 +62,23 @@ html {
     transform: translateZ(0.5px) scale(2.0, 4.0);
 	min-width: 50vw;
 	z-index: 1; /* Smoke should be behind other layers */
-	will-change: auto;
+	will-change: transform;
 	opacity: 0.7;
+	left: -1.5%;
 }
 
 /* Pseudo-element for z-index adjustment */
 .layer0::before {
-    content: ''; /* Necessary to create the pseudo-element */
-    position: absolute;
+    content: '';
+    display: block; /* Makes sure it behaves as an element */
+    position: absolute; /* Create an independent element layer */
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2; /* Higher than the main element */
-    pointer-events: none; /* Ensures it doesn’t interfere with interactivity */
-    background: transparent; /* Adjust if needed */
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Higher stacking layer */
+    pointer-events: none; /* No interference with clicks */
+    background: transparent; /* Or apply any overlay if needed */
 }
 
 /* goddess */
@@ -96,7 +98,6 @@ html {
 	min-width: 50vw;
 	z-index: 3;
 	will-change: transform;
-	left: 3%;
 }
 
 /* Pet Volcano logo text */
