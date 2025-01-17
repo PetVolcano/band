@@ -57,7 +57,7 @@ html {
     top: 0;
     height: 380px; /* Restrict to viewport height */
     overflow: hidden; /* Prevents content spilling */
-    transform: translateZ(-6px) scale(11); /* Adds depth for parallax */
+    transform: translateZ(-6.0px) scale(11); /* Adds depth for parallax */
     pointer-events: none; /* Makes it non-interactive */
     max-height: 99vh; /* Maximum height constraint */
 	z-index: 0; /* Background should be behind all layers */
@@ -65,42 +65,42 @@ html {
 
 /* smoke */
 .layer0 {
-    top: 10vh;
-    transform: translateZ(-1.5px) scale(4.0, 7.0);
+    margin-top: -41vh;
+    transform: translateZ(-1.0px) scale(1, 2);
 	min-width: 50vw;
 	z-index: 1; /* Smoke should be behind other layers */
 	will-change: transform;
 	opacity: 0.7;
-	left: -1.5%;
+	left: -8%;
+	max-height: 90vh;
 }
 
 /* Pet Volcano logo text */
 .layer1 {
 	top: 1vh;
-	transform: translateZ(-.9px) scale(3);
+	transform: translateZ(-0.9px) scale(3);
 	min-width: 50vw;
 	z-index: 4; /* Define the order of stacking */
+	will-change: transform;
+}
+
+/* goddess */
+.layer3 {	
+	top: -5vh;
+	transform: translateZ(-0.5px) scale(1.5);
+	min-width: 50vw;
+	z-index: 2;
 	will-change: transform;
 }
 
 /* Volcano image */
 .layer2 {
 	top: 10vh;
-	transform: translateZ(.3px) scale(5);
+	transform: translateZ(0.3px) scale(5);
 	min-width: 50vw;
 	z-index: 3;
 	will-change: transform;
 	opacity: 1;
-}
-
-
-/* goddess */
-.layer3 {	
-	top: -5vh;
-	transform: translateZ(-.5px) scale(1.5);
-	min-width: 50vw;
-	z-index: 2;
-	will-change: transform;
 }
 
 
@@ -131,11 +131,11 @@ html {
     position: absolute;
     top: 0; /* Adjust this value as needed to place it above the carousel */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-30%);
     z-index: 10;
     font-size: 1.5rem; /* Adjust font size if needed */
     color: antiquewhite;
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
 }
 
@@ -340,27 +340,35 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 }
 
 .jukebox {
-    background-color: #A7181A;
+    background-color:gray;
     background-repeat: no-repeat;
-    border:thick;
     cursor:pointer;
     overflow:hidden;
     outline:hidden;
-	color:#0D0202;
+	color:aqua;
 	font-family: "Orbitron", sans-serif;
-	font-size: 2rem;
-	border-radius: 5px;
+	font-size: 1rem;
+	border-radius: 40px;
 }
 
 .jukebox:hover {
 	background: rgba(100, 100, 20, 0.5); 
 }
 
+.juke {
+	height: 65px;
+	opacity: .8;
+}
 
+.juke:hover {
+	transform: scale(1.1);
+	opacity: .8;
+	background-color:gray;
+}
 
 footer {
 	background: #000000;
-	padding: 25px 0;
+	padding: 0 0 35px 0;
 	text-align: center;
 	display: flex;
 	justify-content: center;
@@ -398,7 +406,7 @@ footer {
 .carousel-container {
     width: 236px; /* Set your carousel width */
     margin: auto;
-    background: rgba(255,255,255,0.7); /* Optional background for carousel container */
+    background: rgba(255,255,255,0.2); /* Optional background for carousel container */
     padding: 5px;
     position: absolute;
     top: 279px; /* Position 20% from the top of the image */
@@ -414,14 +422,14 @@ footer {
 .controls-container {
     width: 160px; /* Set your carousel width */
     margin: auto;
-    background: rgba(300,100,300,0.7); /* Optional background for carousel container */
+    background: rgba(150,150,200,0.5); /* Optional background for carousel container */
     padding: 5px;
     position: absolute;
-    top: 380px; /* Position 20% from the top of the image */
+    top: 375px; /* Position 20% from the top of the image */
     left: 49.5%;
     transform: translateX(-50%); /* Center the carousel horizontally */
     z-index: 2; /* Ensure carousel is behind the background image */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
     overflow: hidden; /* Hide any overflow */
 	flex-direction: row;
 	display: flex;
@@ -492,8 +500,8 @@ footer {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
 }
+
 .music-section {
     background: #000000;
     width: 1000px;
@@ -514,6 +522,12 @@ footer {
 	border-radius: 10px;
 	padding: 1px;
 	top: 0;
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(2); /* Slightly enlarge on hover */
+    filter: brightness(80%); /* Dim the image slightly */
 }
 
 .logosmall {
