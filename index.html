@@ -86,7 +86,7 @@
         </a>
     </div>
 	<div class="layer5">
-		<a href="#home" id="scroll-to-top2"><img src="ampeg1.png" alt="ampgeg" /></a>
+		<a href="#home" id="backtotop"><img src="ampeg1.png" alt="ampgeg" /></a>
     </div>
 </div>
 </div>
@@ -152,43 +152,6 @@ window.addEventListener('load', () => {
     // Call initializeScript() after page load to set up hover effects for initial elements
     initializeScript();
 
-    // Load the home.html content initially when the page loads
-    loadContent('home.html', 'dynamic-content', false);
-    
-	// Flame layer hover effect
-function initializeScript() {
-    const buttons = document.querySelectorAll('.button button'); // Select all buttons in '.button'
-
-    const layer3Image = document.getElementById('layer3');
-
-    if (layer3Image) {
-        buttons.forEach((button) => {
-            // Remove any existing listeners to avoid duplicates
-            button.removeEventListener('mouseenter', handleMouseEnter);
-            button.removeEventListener('mouseleave', handleMouseLeave);
-
-            // Define hover event handlers
-            function handleMouseEnter() {
-				console.log('Mouse entered button');
-                layer3Image.src = 'flamelayer.png';
-            }
-
-            function handleMouseLeave() {
-				console.log('Mouse left button');
-                layer3Image.src = 'image3.gif';
-            }
-
-            // Add the hover event listeners
-            button.addEventListener('mouseenter', handleMouseEnter);
-            button.addEventListener('mouseleave', handleMouseLeave);
-			console.log('initializeScript called');
-        });
-    }
-}
-	
-	// Reinitialize hover effect for the newly loaded content
-    initializeScript();
-
     // Smooth scroll for the Home link in the navbar
     document.querySelector('a[href="#home"]').addEventListener('click', function (e) {
         e.preventDefault(); // Prevent default anchor behavior
@@ -245,7 +208,44 @@ function initializeScript() {
         }
     });
 
+	// Flame layer hover effect
+function initializeScript() {
+    const buttons = document.querySelectorAll('.button button'); // Select all buttons in '.button'
 
+    const layer3Image = document.getElementById('layer3');
+
+    if (layer3Image) {
+        buttons.forEach((button) => {
+            // Remove any existing listeners to avoid duplicates
+            button.removeEventListener('mouseenter', handleMouseEnter);
+            button.removeEventListener('mouseleave', handleMouseLeave);
+
+            // Define hover event handlers
+            function handleMouseEnter() {
+				console.log('Mouse entered button');
+                layer3Image.src = 'flamelayer.png';
+            }
+
+            function handleMouseLeave() {
+				console.log('Mouse left button');
+                layer3Image.src = 'image3.gif';
+            }
+
+            // Add the hover event listeners
+            button.addEventListener('mouseenter', handleMouseEnter);
+            button.addEventListener('mouseleave', handleMouseLeave);
+			console.log('initializeScript called');
+        });
+    }
+}
+	
+    // Load the home.html content initially when the page loads
+    loadContent('home.html', 'dynamic-content', false);
+    
+	
+	// Reinitialize hover effect for the newly loaded content
+    initializeScript();
+	
     // Initialize the carousel
     function initializeCarousel() {
         const carouselSlide = document.querySelector('.carousel-slide');
@@ -354,11 +354,8 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
 });
 	
 </script>
-
-
 </body>
 </html>

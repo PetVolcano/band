@@ -340,8 +340,6 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 }
 
 .jukebox {
-    background-color:gray;
-    background-repeat: no-repeat;
     cursor:pointer;
     overflow:hidden;
     outline:hidden;
@@ -357,12 +355,12 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 
 .juke {
 	height: 65px;
-	opacity: .8;
+	opacity: .9;
 }
 
 .juke:hover {
 	transform: scale(1.1);
-	opacity: .8;
+	opacity: .9;
 	background-color:gray;
 }
 
