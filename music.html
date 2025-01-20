@@ -6,9 +6,10 @@
 <link href="home2.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="music-section" id="dates">
+	<div class="tween-section" id="more">Click a song for streaming options..
+	</div>
+    <div class="music-section" id="jukebox">
         <div class="bg-container">
-            <p class="songselect" id="select"><span>&#8594;Click Title &#8592;</span><br><span>&#8592; Scroll Songs &#8594;</span></p>
             <div class="controls-container">
                 <button class="jukebox" id="prevBtn"><img src="leftbtn.png" alt="Logo" class="juke"></button>
 				<p>-</p>
@@ -34,51 +35,23 @@
                     <a href="https://distrokid.com/hyperfollow/petvolcano/break-free" aria-label="Listen to the song 'Break Free'" target="_blank">
                         <img src="juke5.png" alt="break" id="firstclone" />
                     </a>
+		
                 </div>
             </div>
         </div>            
-    </div>
-	<div class="dates-section" id="dates">
-<p class="mid-text">more songs coming soon...</p>
+		</div>
+	<div class="dates-section" id="songs">
+<p class="mid-text">more songs coming soon...</p></div>
 	<p></p>
-		<p></p></div>
+		<p></p>
 
-    <script>
-       window.addEventListener('load', () => {
-    const carouselSlide = document.querySelector('.carousel-slide');
-    const carouselImages = document.querySelectorAll('.carousel-slide img');
-
-    const prevBtn = document.querySelector('#prevBtn');
-    const nextBtn = document.querySelector('#nextBtn');
-
-    if (carouselSlide && carouselImages.length > 0 && prevBtn && nextBtn) {
-        let counter = 1;
-        const size = carouselImages[0].clientWidth;
-
-        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-
-        nextBtn.addEventListener('click', () => {
-            carouselSlide.style.transition = "transform 0.4s ease-in-out";
-            counter++;
-            if (counter >= carouselImages.length - 1) counter = 0;
-            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+	<p></p>
+		<p></p>
+ <script src="main.js"></script>
+	    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeIframeCarousel();
         });
-
-        prevBtn.addEventListener('click', () => {
-            carouselSlide.style.transition = "transform 0.4s ease-in-out";
-            counter--;
-            if (counter < 0) counter = carouselImages.length - 2;
-            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-        });
-    } else {
-        console.error('Carousel elements not found in DOM.');
-    }
-
-    document.getElementById('load-dates').addEventListener('click', function (e) {
-        e.preventDefault();
-        loadContent('dates.html', 'dynamic-content');
-    });
-});
     </script>
 	</body>
 </html>

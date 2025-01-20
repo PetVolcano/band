@@ -287,9 +287,13 @@ h3 {
 		font-size: .9rem !important; /* Smaller size for very small screens */
 	}
 	
+	.carousel-container-tv {
+		left: 44% !important; /* Center horizontally in the viewport */
+	}
+	
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
     .navbar a {
         font-size: 1rem; /* Even smaller for very small screens */
     }
@@ -300,6 +304,10 @@ h3 {
 	
 	button, .my-button-class {
 		font-size: .8rem !important; /* Smaller size for very small screens */
+	}
+	
+	.carousel-container-tv {
+		left: 42% !important; /* Center horizontally in the viewport */
 	}
 	
 }
@@ -364,21 +372,43 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 	background-color:gray;
 }
 
-footer {
-	background: #000000;
-	padding: 0 0 35px 0;
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	bottom: 0;
+.tvbox {
+    cursor:pointer;
+	background: none; /* Removes the white background */
+    border: none; /* Removes any default border */
+    padding: 0; /* Removes any default padding */
+}
+
+
+.tvbox:hover {
+	background: none;
+}
+
+.tvbtn {
+	height: 38px;
+	opacity: .9;
+	background: none;
+}
+
+.tvbtn:hover {
+	transform: scale(1.1);
+	opacity: .9;
+	background: none;
+}
+
+.tvbuttons {
 	position: relative;
+	left: 216px;
+	top: 10px;
+	z-index: 100;
+	flex-direction: column;
 }
 
 .glow-text {
 	color: #E0D9D9;
 	text-shadow: 0 0 5px #cb4335, 0 0 10px #cb4335, 0 0 20px #cb4335;
 }
+
 
 /* for the MUSIC player */
 .bg-container {
@@ -415,7 +445,6 @@ footer {
     overflow: hidden; /* Hide any overflow */
 }
 
-
 /* Carousel container inside the background */
 .controls-container {
     width: 160px; /* Set your carousel width */
@@ -433,6 +462,96 @@ footer {
 	display: flex;
 	justify-content:center;
 	border-radius: 5px;
+}
+
+/* for the TV player */
+.tv-container-nobg {
+    position: relative;
+	max-width: 900px; /* Adjusted max width of the entire background */
+    width: 100%;
+    margin: auto;
+    height: 300px;
+    background-image: url(); /* Replace with your desired background image */
+    background-size: 424px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	z-index: 99; /* Ensure background is in front of other elements */
+	margin-top: 1vh; /* Adjust this value to control spacing */
+}
+
+/* for the TV player */
+.tv-container {
+    position: relative;
+	max-width: 900px; /* Adjusted max width of the entire background */
+    width: 100%;
+    margin: auto;
+    height: 300px;
+    background-image: url('tubetv.png'); /* Replace with your desired background image */
+    background-size: 524px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	z-index: 99; /* Ensure background is in front of other elements */
+	margin-top: 1vh; /* Adjust this value to control spacing */
+}
+
+/* Carousel container */
+.carousel-container-tv {
+    width: 300px; /* Adjust the width to fit the larger videos */
+    padding: 0; /* Remove padding to avoid interfering with iframe size */
+    position:absolute;
+    z-index: 1; /* Place container above other elements */
+    overflow: hidden; /* Clip any overflow content */
+	border: none;
+	top: 51px;
+	left: 45%; /* Center horizontally in the viewport */
+    transform: translateX(-50%) scale(1.2); /* Center and scale */
+}
+
+/* Carousel container inside the background */
+.controls-container-tv {
+    width: 48px; /* Set your carousel width */
+    margin: auto;
+    background: rgba(150,150,200,0.5); /* Optional background for carousel container */
+    padding: 5px;
+    position: absolute;
+    top: 150px; /* Position 20% from the top of the image */
+	left: 49.5%;
+    transform: translateX(-50%); /* Center the carousel horizontally */
+    z-index: 2; /* Ensure carousel is behind the background image */
+    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+    overflow: hidden; /* Hide any overflow */
+	flex-direction: column;
+	display: flex;
+	justify-content:center;
+	border-radius: 5px;
+}
+
+/* Carousel slides container */
+.carousel-slide-tv {
+    display: flex;
+    width: 350px;
+    height: 188px;
+}
+
+.carousel-slide-tv iframe {
+    width: auto; /* Increase the width to make the videos larger */
+    height: auto; /* Keeps the aspect ratio */
+    max-width: 100%; /* Prevents it from exceeding its container */
+    object-fit: fill;
+}
+
+.carousel-slide-tv a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 236px;
+    text-decoration: none;
 }
 
 /* The carousel slide styling remains the same as before */
@@ -456,6 +575,20 @@ footer {
     height: auto;
 }
 
+/* Overlay div for image frame */
+.image-frame {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%; 
+    height: 300px;
+    background-image: url('tubetv.png'); /* Your background image with a transparent cut-out */
+    background-size: 524px;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
 .dates-section {
 	background: #000000;
 	padding: 20px;
@@ -471,6 +604,17 @@ footer {
     content: "";
     display: block;
     height: 150px; /* Adjust this to your needs */
+}
+
+.tween-section {
+	background: #000000;
+	padding: 20px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
 }
 
 .home-section {
@@ -502,7 +646,7 @@ footer {
 
 .music-section {
     background: #000000;
-    width: 1000px;
+    width: 100vw;
     display: flex;
 }
 
@@ -513,7 +657,6 @@ footer {
 	top: 0;
 	margin-bottom: 10px;
 }
-
 
 .logo {
 	width: 20vh;
@@ -550,4 +693,15 @@ footer {
 
 .social-icon img:hover {
     transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+footer {
+	background: #000000;
+	padding: 0 0 35px 0;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	bottom: 0;
+	position: relative;
 }

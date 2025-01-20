@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Video</title>
+<link href="home2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="music-section" id="vids">
+        <div class="tv-container-no-tv">
+            <div class="carousel-container-tv">
+                <div class="carousel-slide-tv">
+					<iframe width="500px" height="281.25px" src="https://www.youtube.com/embed/hZVH25HIwMA?si=IWCunCaO10_1TN7Q&amp;controls=0" title="break free live" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                   
+					<iframe width="500px" height="281.25px" src="https://www.youtube.com/embed/m8UV4bzsOww?si=Nvn1Fa0lMBYIBG9r&amp;controls=0" title="beat still lyrics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					
+					<iframe width="500px" height="281.25px" src="https://www.youtube.com/embed/BgrNd5vQBZA?si=r7eKicRTonGATnNK&amp;controls=0" title="attitude gratitude live" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					
+					<iframe width="500px" height="281.25px" src="https://www.youtube.com/embed/hZnOpW56WYg?si=FQr5-bEwNhLwzE7v&amp;controls=0" title="zombie" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					
+					<iframe width="500px" height="281.25px" src="https://www.youtube.com/embed/PVQ3DYnfLxE?si=R78Jhr_-g2eTUOvk&amp;controls=0" title="je te veux preview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						
+					<!-- Clone the first and last items for smooth looping -->
+					<iframe width="500px" height="281.25px" src="https://www.youtube.com/embed/hZVH25HIwMA?si=IWCunCaO10_1TN7Q&amp;controls=0" title="break free live" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen id="lastclone"></iframe>
+					
+					<iframe width="500px" height="281.25px" src="https://www.youtube.com/embed/BgrNd5vQBZA?si=r7eKicRTonGATnNK&amp;controls=0" title="attitude gratitude live" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen id="firstclone"></iframe>
+										
+                </div>
+            </div>
+				<div class="tv-container">
+			<div class="controls-container-tv">
+               	<button class="tvbox" id="nextBtn"><img src="rghtbtn2.png" alt="rghtbtn" class="tvbtn"></button>
+				<button class="tvbox" id="prevBtn"><img src="leftbtn2.png" alt="lftbtn" class="tvbtn"></button>
+            </div> 
+				</div>
+        </div>
+    </div>
+	<div class="dates-section" id="">
+<p class="mid-text">more videos coming soon...</p>
+	<p></p>
+		<p></p></div>
+<script>
+    window.addEventListener('load', () => {
+        const carouselSlide = document.querySelector('.carousel-slide-tv');
+        const carouselItems = document.querySelectorAll('.carousel-slide-tv iframe');
+
+        const prevBtn = document.querySelector('#prevBtn');
+        const nextBtn = document.querySelector('#nextBtn');
+
+        if (carouselSlide && carouselItems.length > 0 && prevBtn && nextBtn) {
+            let counter = 1; // Start at the first visible item
+            const size = carouselItems[0].clientWidth;
+
+            // Initialize position
+            carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+
+            // Helper function to update autoplay status
+            const updateAutoplay = () => {
+                carouselItems.forEach((iframe, index) => {
+                    const src = iframe.src.replace('&autoplay=1', ''); // Remove autoplay if present
+                    if (index === counter) {
+                        iframe.src = src + '&autoplay=1'; // Add autoplay for the visible video
+                    } else {
+                        iframe.src = src; // Ensure autoplay is removed for non-visible videos
+                    }
+                });
+            };
+
+            // Set autoplay for the initial video
+            updateAutoplay();
+
+            // Next button
+            nextBtn.addEventListener('click', () => {
+                if (counter >= carouselItems.length - 1) return; // Prevent going out of bounds
+                carouselSlide.style.transition = "transform 0.4s ease-in-out";
+                counter++;
+                carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+                updateAutoplay();
+            });
+
+            // Previous button
+            prevBtn.addEventListener('click', () => {
+                if (counter <= 0) return; // Prevent going out of bounds
+                carouselSlide.style.transition = "transform 0.4s ease-in-out";
+                counter--;
+                carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+                updateAutoplay();
+            });
+
+            // Infinite loop handling
+            carouselSlide.addEventListener('transitionend', () => {
+                if (carouselItems[counter].id === 'firstclone') {
+                    carouselSlide.style.transition = "none";
+                    counter = 1;
+                    carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+                }
+
+                if (carouselItems[counter].id === 'lastclone') {
+                    carouselSlide.style.transition = "none";
+                    counter = carouselItems.length - 2;
+                    carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+                }
+                updateAutoplay();
+            });
+        } else {
+            console.error('Carousel elements not found in DOM.');
+        }
+    });
+</script>
+
+	</body>
+</html>
