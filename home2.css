@@ -582,6 +582,7 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
     background-position: center;
     background-repeat: no-repeat;
     z-index: 2;
+	opacity: 50%;
 }
 
 .dates-section {
