@@ -179,17 +179,17 @@ function initializeIframeCarousel() {
         // Initialize position
         carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
 
-        // Helper function to update autoplay status
-        const updateAutoplay = () => {
-            carouselItems.forEach((iframe, index) => {
-                const src = iframe.src.replace('&autoplay=1', ''); // Remove autoplay if present
-                if (index === counter) {
-                    iframe.src = autoplayOn ? src + '&autoplay=1' : src; // Conditionally add autoplay
-                } else {
-                    iframe.src = src; // Ensure autoplay is removed for non-visible videos
-                }
-            });
-        };
+// Helper function to update autoplay status
+const updateAutoplay = () => {
+    carouselItems.forEach((iframe, index) => {
+        let src = iframe.src.replace('&autoplay=1', '').replace('&muted=1', ''); // Remove existing autoplay and muted parameters
+        if (index === counter) {
+            iframe.src = autoplayOn ? src + '&autoplay=1&muted=1' : src; // Add autoplay and muted for the current video
+        } else {
+            iframe.src = src; // Reset src for non-visible videos
+        }
+    });
+};
 
         // Set autoplay for the initial video
         updateAutoplay();

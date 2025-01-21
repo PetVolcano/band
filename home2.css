@@ -375,19 +375,6 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 	transform: scale(1.1);
 }
 
-.jukebox {
-    cursor:pointer;
-    overflow:hidden;
-    outline:hidden;
-	color:aqua;
-	font-family: "Orbitron", sans-serif;
-	font-size: 1rem;
-	border-radius: 40px;
-}
-
-.jukebox:hover {
-	background: rgba(100, 100, 20, 0.5); 
-}
 
 .juke {
 	height: 65px;
@@ -397,7 +384,6 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 .juke:hover {
 	transform: scale(1.1);
 	opacity: .9;
-	background-color:gray;
 }
 
 .tvbox {
@@ -489,6 +475,7 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 	display: flex;
 	justify-content:center;
 	border-radius: 5px;
+	height: 77px;
 }
 
 /* for the TV player */
@@ -516,12 +503,14 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
     width: 100%;
     margin: auto;
     height: 272px;
+	background-image: url("static.gif"); /* Replace with your desired background image */
+	background-size: 424px;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-	z-index: 99; /* Ensure background is in front of other elements */
+	z-index: 0; /* Ensure background is in front of other elements */
 	margin-top: 1vh; /* Adjust this value to control spacing */
 }
 
@@ -593,7 +582,6 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
     background-position: center;
     background-repeat: no-repeat;
     z-index: 2;
-	opacity: 90%;
 }
 
 .dates-section {
