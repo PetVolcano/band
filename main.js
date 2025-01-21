@@ -179,19 +179,20 @@ function initializeIframeCarousel() {
         // Initialize position
         carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
 
-// Helper function to update autoplay status
-const updateAutoplay = () => {
-    carouselItems.forEach((iframe, index) => {
-        if (index === counter) {
-            // Do not modify the src of the active video
-            iframe.setAttribute('allow', 'autoplay; fullscreen');
-        } else {
-            // Reset src for non-active videos to stop them
-            const baseSrc = iframe.src.split('&autoplay=1')[0];
-            iframe.src = baseSrc;
-        }
-    });
-};
+        // Helper function to update autoplay status
+        const updateAutoplay = () => {
+            carouselItems.forEach((iframe, index) => {
+                if (index === counter) {
+                    // Do not modify the src of the active video
+                    iframe.setAttribute('allow', 'autoplay; fullscreen');
+                } else {
+                    // Reset src for non-active videos to stop them
+                    const baseSrc = iframe.src.split('&autoplay=1')[0];
+                    iframe.src = baseSrc;
+                }
+            });
+        };
+
         // Set autoplay for the initial video
         updateAutoplay();
 
@@ -233,19 +234,18 @@ const updateAutoplay = () => {
             });
         });
 
-// Start button functionality
-document.querySelector('#startBtn2').addEventListener('click', () => {
-    carouselItems.forEach((iframe, index) => {
-        if (index === counter) {
-            const src = iframe.src.split('&autoplay=1')[0]; // Remove existing autoplay if present
-            iframe.src = src + '&autoplay=1'; // Add autoplay for the visible video
-            iframe.style.pointerEvents = 'auto'; // Enable iframe interaction
-        } else {
-            iframe.style.pointerEvents = 'none'; // Disable interaction for non-visible videos
-        }
-    });
-
-});
+        // Start button functionality
+        document.querySelector('#startBtn2').addEventListener('click', () => {
+            carouselItems.forEach((iframe, index) => {
+                if (index === counter) {
+                    const src = iframe.src.split('&autoplay=1')[0]; // Remove existing autoplay if present
+                    iframe.src = src + '&autoplay=1'; // Add autoplay for the visible video
+                    iframe.style.pointerEvents = 'auto'; // Enable iframe interaction
+                } else {
+                    iframe.style.pointerEvents = 'none'; // Disable interaction for non-visible videos
+                }
+            });
+        });
 
         // Handle transition events
         carouselSlide.addEventListener('transitionend', () => {
@@ -255,6 +255,7 @@ document.querySelector('#startBtn2').addEventListener('click', () => {
         console.error('Iframe carousel elements not found in DOM.');
     }
 }
+
 
     // Load the home.html content initially when the page loads
     loadContent('home.html', 'dynamic-content', false);
