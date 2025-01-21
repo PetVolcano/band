@@ -524,7 +524,7 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 }
 
 .carousel-slide-tv iframe {
-    width: auto; /* Increase the width to make the videos larger */
+    width: 100%; /* Increase the width to make the videos larger */
     height: auto; /* Keeps the aspect ratio */
     max-width: 100%; /* Prevents it from exceeding its container */
     object-fit: fill;

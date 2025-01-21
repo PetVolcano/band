@@ -183,8 +183,8 @@ function initializeIframeCarousel() {
 const updateAutoplay = () => {
     carouselItems.forEach((iframe, index) => {
         const baseSrc = iframe.dataset.src; // Retrieve the base URL from data-src
-        if (index === counter && autoplayOn) {
-            iframe.src = baseSrc + '&autoplay=1&muted=1'; // Add autoplay and muted for the visible video
+        if (index === counter) {
+            iframe.src = baseSrc + '&muted=1'; // Keep muted for consistency, but remove autoplay
         } else {
             iframe.src = baseSrc; // Reset to the base URL for non-visible videos
         }
