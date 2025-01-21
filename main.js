@@ -182,11 +182,15 @@ function initializeIframeCarousel() {
 // Helper function to update autoplay status
 const updateAutoplay = () => {
     carouselItems.forEach((iframe, index) => {
-        const baseSrc = iframe.dataset.src; // Retrieve the base URL from data-src
+        let videoSrc = iframe.src; // Use the existing src directly
         if (index === counter) {
-            iframe.src = baseSrc + '&muted=1'; // Keep muted for consistency, but remove autoplay
+            // Append muted if autoplay isn't working
+            if (!videoSrc.includes('&muted=1')) {
+                iframe.src = videoSrc + '&muted=1'; // Ensure the visible video has muted audio
+            }
         } else {
-            iframe.src = baseSrc; // Reset to the base URL for non-visible videos
+            // Stop other videos by resetting their src
+            iframe.src = videoSrc.split('&muted=1')[0]; // Remove the autoplay/muted parameters
         }
     });
 };
