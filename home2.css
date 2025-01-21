@@ -308,8 +308,36 @@ h3 {
 	
 	.carousel-container-tv {
 		left: 42% !important; /* Center horizontally in the viewport */
+		background-size: 400px !important;
 	}
 	
+}
+
+@media (max-width: 490px) {
+		.carousel-container-tv {
+		left: 36% !important; /* Center horizontally in the viewport */
+	}
+	.image-frame {
+		background-size: 400px !important;
+		top: -40px !important;
+	}
+	.carousel-container-tv {
+    width: 300px !important;
+	height: 150px !important;
+	top: 20px !important;
+	left: 43.5% !important;
+	transform: translateX(-50%) scale(.9) !important; /* Center the carousel horizontally */
+	}
+	.tvbtn {
+		height: 28px !important;
+	}
+	.tvbuttons {
+		left: 166px !important;
+	}
+
+	.tv-container {
+		height: 210px !important;
+	}
 }
 
 button {
@@ -409,7 +437,6 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 	text-shadow: 0 0 5px #cb4335, 0 0 10px #cb4335, 0 0 20px #cb4335;
 }
 
-
 /* for the MUSIC player */
 .bg-container {
     position: relative;
@@ -447,7 +474,7 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 
 /* Carousel container inside the background */
 .controls-container {
-    width: 160px; /* Set your carousel width */
+    width: 180px; /* Set your carousel width */
     margin: auto;
     background: rgba(150,150,200,0.5); /* Optional background for carousel container */
     padding: 5px;
@@ -470,7 +497,7 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 	max-width: 900px; /* Adjusted max width of the entire background */
     width: 100%;
     margin: auto;
-    height: 300px;
+    height: 200px;
     background-image: url(); /* Replace with your desired background image */
     background-size: 424px;
     background-position: center;
@@ -488,9 +515,7 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 	max-width: 900px; /* Adjusted max width of the entire background */
     width: 100%;
     margin: auto;
-    height: 300px;
-    background-image: url('tubetv.png'); /* Replace with your desired background image */
-    background-size: 524px;
+    height: 272px;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
@@ -508,28 +533,9 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
     z-index: 1; /* Place container above other elements */
     overflow: hidden; /* Clip any overflow content */
 	border: none;
-	top: 51px;
-	left: 45%; /* Center horizontally in the viewport */
+	top: 36px;
+	left: 45.5%; /* Center horizontally in the viewport */
     transform: translateX(-50%) scale(1.2); /* Center and scale */
-}
-
-/* Carousel container inside the background */
-.controls-container-tv {
-    width: 48px; /* Set your carousel width */
-    margin: auto;
-    background: rgba(150,150,200,0.5); /* Optional background for carousel container */
-    padding: 5px;
-    position: absolute;
-    top: 150px; /* Position 20% from the top of the image */
-	left: 49.5%;
-    transform: translateX(-50%); /* Center the carousel horizontally */
-    z-index: 2; /* Ensure carousel is behind the background image */
-    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-    overflow: hidden; /* Hide any overflow */
-	flex-direction: column;
-	display: flex;
-	justify-content:center;
-	border-radius: 5px;
 }
 
 /* Carousel slides container */
@@ -550,7 +556,7 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 236px;
+    flex: 0 0 136px;
     text-decoration: none;
 }
 
@@ -578,7 +584,7 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 /* Overlay div for image frame */
 .image-frame {
     position: absolute;
-    top: 5px;
+    top: -10px;
     left: 0;
     width: 100%; 
     height: 300px;
@@ -587,6 +593,7 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
     background-position: center;
     background-repeat: no-repeat;
     z-index: 2;
+	opacity: 90%;
 }
 
 .dates-section {
