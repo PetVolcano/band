@@ -321,6 +321,12 @@ h3 {
 		background-size: 400px !important;
 		top: -40px !important;
 	}
+	
+	.static-image-frame {
+		background-size: 300px !important;
+		top: -50px !important;
+		left: -12px !important;
+	}
 	.carousel-container-tv {
     width: 300px !important;
 	height: 150px !important;
@@ -337,6 +343,7 @@ h3 {
 
 	.tv-container {
 		height: 210px !important;
+		background-size: 300px !important;
 	}
 }
 
@@ -478,23 +485,6 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
 	height: 77px;
 }
 
-/* for the TV player */
-.tv-container-nobg {
-    position: relative;
-	max-width: 900px; /* Adjusted max width of the entire background */
-    width: 100%;
-    margin: auto;
-    height: 200px;
-    background-image: url(); /* Replace with your desired background image */
-    background-size: 424px;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-	z-index: 99; /* Ensure background is in front of other elements */
-	margin-top: 1vh; /* Adjust this value to control spacing */
-}
 
 /* for the TV player */
 .tv-container {
@@ -503,9 +493,8 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
     width: 100%;
     margin: auto;
     height: 272px;
-	background-image: url("static.gif"); /* Replace with your desired background image */
-	background-size: 424px;
-    background-position: center;
+	background-size: 400px;
+    background-position: left 50px top 18px;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -582,7 +571,21 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
     background-position: center;
     background-repeat: no-repeat;
     z-index: 2;
-	opacity: 50%;
+}
+
+/* Overlay div for image frame */
+.static-image-frame {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%; 
+    height: 300px;
+    background-image: url('static.gif'); /* Your background image with a transparent cut-out */
+    background-size: 424px;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+	opacity: 10%;
 }
 
 .dates-section {
