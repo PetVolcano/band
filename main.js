@@ -233,15 +233,19 @@ const updateAutoplay = () => {
             });
         });
 
-        // Start button functionality
-        document.querySelector('#startBtn2').addEventListener('click', () => {
-            carouselItems.forEach((iframe, index) => {
-                const src = iframe.src.replace('&autoplay=1', ''); // Remove autoplay if present
-                if (index === counter) {
-                    iframe.src = src + '&autoplay=1'; // Add autoplay for the visible video
-                }
-            });
-        });
+// Start button functionality
+document.querySelector('#startBtn2').addEventListener('click', () => {
+    carouselItems.forEach((iframe, index) => {
+        if (index === counter) {
+            const src = iframe.src.split('&autoplay=1')[0]; // Remove existing autoplay if present
+            iframe.src = src + '&autoplay=1'; // Add autoplay for the visible video
+            iframe.style.pointerEvents = 'auto'; // Enable iframe interaction
+        } else {
+            iframe.style.pointerEvents = 'none'; // Disable interaction for non-visible videos
+        }
+    });
+
+});
 
         // Handle transition events
         carouselSlide.addEventListener('transitionend', () => {
