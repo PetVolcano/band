@@ -230,6 +230,11 @@ h3 {
 	font-size: 1rem; 
 }
 
+.supersmall-text {
+	margin: 0;
+	font-size: .5rem; 
+}
+
 .blocktext {
 	margin: 0;
 	font-size: 1rem;
@@ -571,6 +576,7 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
     background-position: center;
     background-repeat: no-repeat;
     z-index: 2;
+	pointer-events: none; /* Disable pointer events */
 }
 
 /* Overlay div for image frame */
