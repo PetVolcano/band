@@ -182,19 +182,16 @@ function initializeIframeCarousel() {
 // Helper function to update autoplay status
 const updateAutoplay = () => {
     carouselItems.forEach((iframe, index) => {
-        let videoSrc = iframe.src; // Use the existing src directly
         if (index === counter) {
-            // Append muted if autoplay isn't working
-            if (!videoSrc.includes('&muted=1')) {
-                iframe.src = videoSrc + '&muted=1'; // Ensure the visible video has muted audio
-            }
+            // Do not modify the src of the active video
+            iframe.setAttribute('allow', 'autoplay; fullscreen');
         } else {
-            // Stop other videos by resetting their src
-            iframe.src = videoSrc.split('&muted=1')[0]; // Remove the autoplay/muted parameters
+            // Reset src for non-active videos to stop them
+            const baseSrc = iframe.src.split('&autoplay=1')[0];
+            iframe.src = baseSrc;
         }
     });
 };
-
         // Set autoplay for the initial video
         updateAutoplay();
 
