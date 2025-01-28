@@ -700,6 +700,13 @@ scroll-to-hiding:hover, scroll-to-hiding:active {
     transform: scale(1.2); /* Slight zoom effect on hover */
 }
 
+.social-icon2 img {
+    width: 20px; /* Adjust size as needed */
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+
 footer {
 	background: #000000;
 	padding: 0 0 35px 0;
